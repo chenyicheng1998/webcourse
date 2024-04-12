@@ -1,1 +1,5 @@
-Deno.serve(() => new Response("Hello world!"));
+const handleRequest = () => {
+    return new Response("Hello world!");
+  };
+  
+  Deno.serve(handleRequest);
