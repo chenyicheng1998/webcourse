@@ -1,14 +1,18 @@
-const handleRequest = (request) => {
-    let message = "I am unsure what I should do here!";
-    if (request.method === "GET") {
-      message = "Retrieving information, are you?";
-    } else if (request.method === "POST") {
-      message = "Posting information, are you?";
-    } else if (request.method === "Alohomora") {
-      message = "Magicking, are you?";
-    }
-  
-    return new Response(message);
-  };
-  
-  Deno.serve(handleRequest);
+import { Hono } from "https://deno.land/x/hono@v3.7.4/mod.ts";
+
+const app = new Hono();
+
+app.get("/", async (c) => {
+  return c.html(`<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+  </head>
+  <body>
+    <h1>Magic!</h1>
+    <p>Now, we will familiarize ourselves with HTML.</p>
+  </body>
+</html>`);
+});
+
+Deno.serve(app.fetch);
