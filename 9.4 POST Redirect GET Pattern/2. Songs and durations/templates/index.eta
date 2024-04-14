@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Songs and durations!</title>
+  </head>
+  <body>
+    <h1>Songs</h1>
+    <!-- add a form for adding songs here -->
+
+    <form method="POST" action="/songs">
+      <label for="Song name">Song name:</label>
+      <input type="text" id="name" name="Song name" /><br/>
+      <label for="Song duration">Song duration:</label>
+      <input type="text" id="duration" name="Song duration" /><br/>
+      <input type="submit" value="Submit form" />
+    </form>
+
+
+
+
+    <table>
+      <tr>
+        <th>Song name</th>
+        <th>Duration (seconds)</th>
+      </tr>
+      <!-- songs from the server should be listed here -->
+      
+      
+      
+
+      <% it.songs.forEach((entry) => { %>
+      <tr>
+        <td><%= entry.name %></td>
+        <td><%= entry.duration %></td>
+      </tr>
+      <% }); %>
+      
+      
+      
+      
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
